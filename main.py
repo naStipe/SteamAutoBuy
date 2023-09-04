@@ -1,11 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
+from threading import Thread
+from selenium.webdriver.common.by import By
+import tkinter as tk
 import time
 import pickle
-from threading import Thread
+import os
 
 
 def do_stuff():
@@ -14,15 +16,6 @@ def do_stuff():
     while True:
         time.sleep(3)
 
-
-# def open_browser():
-#     driver = webdriver.Chrome()
-#     driver.get('https://steamcommunity.com')
-#     try:
-#         load_session()
-#         print('Session loaded')
-#     except:
-#         print('Session not found')
 
 def save_session(driver):
     try:
@@ -33,16 +26,28 @@ def save_session(driver):
     except:
         print('Session save failed')
 def load_session(driver):
-    print('in load functio')
-    with open('session.pkl', 'rb') as session_file:
-        print('opened file')
-        cookies = pickle.load(session_file)
-        print('file loaded')
+    time.sleep(0.3)
+    driver.delete_all_cookies()
 
+    try:
+        print('in load functio')
+        with open('session.pkl', 'rb') as session_file:
+            print('opened file')
+            cookies = pickle.load(session_file)
+            print(cookies)
+    except:
+        print('cookies not found')
+        pass
+
+    # try:
     for cookie in cookies:
-        driver.add_cookie(  cookie)
-    print('cookies added')
+        if cookie['domain'] == 'steamcommunity.com' or cookie['domain'] == '.steamcommunity.com':
+            driver.add_cookie(cookie)
 
+    print('cookies added')
+# except:
+#     print('cookies not added')
+#     pass
 def start_button_click():
     do_stuff()
     messagebox.showinfo("Info", "Start button clicked")
@@ -52,49 +57,42 @@ def stop_button_click():
 
 def exit_button_click():
     global overlay_window, driver
-    save_session(driver)
-    if messagebox.askyesno("Exit", "Do you want to exit?"):
-        overlay_window.destroy()
+    if messagebox.askyesno("Exit", "Do you want to save cookies?"):
+        save_session(driver)
+    else:
+        os.remove('session.pkl')
 
     driver.close()
     exit()
 
-def window_create():
-    # Create the main window
-    root = tk.Tk()
-    root.title("Modern Buttons Window")
 
-    # Create and configure themed buttons
-    style = ttk.Style()
-    style.configure("TButton", padding=10, font=("Helvetica", 12))
-
-    start_button = ttk.Button(root, text="Start", command=start_button_click)
-    stop_button = ttk.Button(root, text="Stop", command=stop_button_click)
-    exit_button = ttk.Button(root, text="Exit", command=exit_button_click)
-
-    # Place themed buttons in the window
-    start_button.pack(pady=10)
-    stop_button.pack(pady=10)
-    exit_button.pack(pady=10)
-
-    # Start the Tkinter main loop
-    root.mainloop()
-
-
+def get_extension():
+    global driver
+    driver.get(EXTENSION_LINK)
+    time.sleep(0.3)
+    addExtensionButton = driver.get_element(By.XPATH, ADD_EXTENSION_BUTTON)
+    addExtensionButton.click()
 
 #----------------------------------------- MAIN BODY ------------------------------------------------#
 
 #CONSTANTS#
+EXTENSION_LINK = 'https://chrome.google.com/webstore/detail/steam-inventory-helper/cmeakgjggjdlcpncigglobpjbkabhmjl'
+ADD_EXTENSION_BUTTON = '/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div/div'
+
+
 
 chrome_options = Options()
 chrome_options.add_experimental_option('detach', True)
 chrome_options.add_argument('--ignore-certificate-error')
 chrome_options.add_argument('--ignore-ssl-errors')
 driver = webdriver.Chrome(options=chrome_options)
+driver.maximize_window()
 
 driver.get('https://steamcommunity.com')
 load_session(driver)
 driver.get('https://steamcommunity.com')
+print(driver.get_cookies())
+# get_extension()
 
 overlay_window = tk.Tk()
 overlay_window.title("Modern Buttons Window")
