@@ -4,8 +4,110 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf59bae6-51e7-4d6f-aca9-e9076739cd62" name="Changes" comment="Added open_browser function">
+    <list default="true" id="cf59bae6-51e7-4d6f-aca9-e9076739cd62" name="Changes" comment="Added management window">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pip/_vendor/rich/tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pip/_vendor/rich/tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pkg_resources/_vendor/zipp.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pkg_resources/_vendor/zipp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium-4.11.2.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium-4.11.2.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium-4.11.2.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium-4.11.2.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium-4.11.2.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/common/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/common/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/types.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/chromium/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/chromium/options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/chromium/webdriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/chromium/webdriver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/action_chains.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/action_chains.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/actions/key_actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/actions/key_actions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/alert.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/alert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/by.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/by.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/desired_capabilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/desired_capabilities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/accessibility.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/animation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/audits.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/background_service.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/browser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/cache_storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/cast.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/console.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/css.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/database.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/debugger.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/device_access.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/device_orientation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/dom.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/dom_debugger.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/dom_snapshot.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/dom_storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/emulation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/event_breakpoints.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/fed_cm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/fetch.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/headless_experimental.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/heap_profiler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/indexed_db.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/input_.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/inspector.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/io.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/layer_tree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/log.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/media.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/memory.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/network.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/overlay.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/page.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/performance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/performance_timeline.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/preload.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/profiler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/py.typed" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/runtime.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/schema.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/security.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/service_worker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/system_info.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/target.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/tethering.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/tracing.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/web_audio.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/devtools/v113/web_authn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/html5/application_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/html5/application_cache.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/keys.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/keys.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/linux/selenium-manager" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/linux/selenium-manager" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/macos/selenium-manager" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/macos/selenium-manager" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/print_page_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/print_page_options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/proxy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/selenium_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/selenium_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/timeouts.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/timeouts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/windows/selenium-manager.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/common/windows/selenium-manager.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/edge/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/edge/options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/firefox/firefox_profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/firefox/firefox_profile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/firefox/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/firefox/options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/ie/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/ie/options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/file_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/file_detector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/findElements.js" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/findElements.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/getAttribute.js" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/getAttribute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/isDisplayed.js" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/isDisplayed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/mobile.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/mobile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/remote_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/remote_connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/webdriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/webdriver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/webelement.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/remote/webelement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/safari/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/safari/options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/safari/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/safari/permissions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/support/color.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/support/color.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/support/expected_conditions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/support/expected_conditions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/support/relative_locator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/support/relative_locator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/webkitgtk/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/selenium/webdriver/webkitgtk/options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/setuptools/_vendor/zipp.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/setuptools/_vendor/zipp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/setuptools/command/bdist_egg.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/setuptools/command/bdist_egg.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,21 +127,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/naStipe/Documents/Python/5rubBOT",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/naStipe/Documents/Python/5rubBOT&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="SteamAutoBuyBot" />
@@ -76,7 +178,9 @@
       <workItem from="1693434646604" duration="1406000" />
       <workItem from="1693437538913" duration="154000" />
       <workItem from="1693479855558" duration="3921000" />
-      <workItem from="1693812204147" duration="2019000" />
+      <workItem from="1693812204147" duration="2250000" />
+      <workItem from="1693824044511" duration="1082000" />
+      <workItem from="1693826476907" duration="1535000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <option name="closed" value="true" />
@@ -102,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693812467713</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added management window">
+      <option name="closed" value="true" />
+      <created>1693815001059</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1693815001059</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,9 +246,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init commit" />
     <MESSAGE value="Added open_browser function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added open_browser function" />
+    <MESSAGE value="Added management window" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added management window" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SteamAutoBuyBot$main.coverage" NAME="main Coverage Results" MODIFIED="1693814817611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SteamAutoBuyBot$main.coverage" NAME="main Coverage Results" MODIFIED="1693828004733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
