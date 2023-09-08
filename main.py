@@ -10,12 +10,13 @@ import pickle
 import os
 
 
-def do_stuff():
+def do_looting():
+    balance = float(driver.find_element(By.CSS_SELECTOR,BALANCE_ID).text[-5])
+    print(balance)
+    driver.find_element(By.XPATH,SKIN_DATA_SWITCH).click()
 
-    print('Doung stuff')
-    while True:
-        time.sleep(3)
-
+    items = driver.find_elements(By.CLASS_NAME, ITEM_ROW)
+    print(items)
 
 def save_session(driver):
     try:
@@ -37,19 +38,19 @@ def load_session(driver):
             print(cookies)
     except:
         print('cookies not found')
+        return  0
+
+    try:
+        for cookie in cookies:
+            if cookie['domain'] == 'steamcommunity.com' or cookie['domain'] == '.steamcommunity.com':
+                driver.add_cookie(cookie)
+
+        print('cookies added')
+    except:
+        print('cookies not added')
         pass
-
-    # try:
-    for cookie in cookies:
-        if cookie['domain'] == 'steamcommunity.com' or cookie['domain'] == '.steamcommunity.com':
-            driver.add_cookie(cookie)
-
-    print('cookies added')
-# except:
-#     print('cookies not added')
-#     pass
 def start_button_click():
-    do_stuff()
+    do_looting()
     messagebox.showinfo("Info", "Start button clicked")
 
 def stop_button_click():
@@ -69,15 +70,30 @@ def exit_button_click():
 def get_extension():
     global driver
     driver.get(EXTENSION_LINK)
-    time.sleep(0.3)
-    addExtensionButton = driver.get_element(By.XPATH, ADD_EXTENSION_BUTTON)
-    addExtensionButton.click()
+    if messagebox.askyesno('Extension installation', 'Has the extension been installed?'):
+        driver.get(MP5_LINK)
+
+def check_login():
+    try:
+        driver.find_element(By.XPATH, LOGIN_BUTTON)
+        print('Not logged in')
+        return False
+    except:
+        print('Logged in')
+        return True
+
 
 #----------------------------------------- MAIN BODY ------------------------------------------------#
 
 #CONSTANTS#
+STEAM_LINK = 'https://steamcommunity.com'
 EXTENSION_LINK = 'https://chrome.google.com/webstore/detail/steam-inventory-helper/cmeakgjggjdlcpncigglobpjbkabhmjl'
 ADD_EXTENSION_BUTTON = '/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div/div'
+MP5_LINK = 'https://steamcommunity.com/market/listings/730/MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29#'
+LOGIN_BUTTON = '//*[@id="global_action_menu"]/a[2]'
+BALANCE_ID = '#header_wallet_balance'
+SKIN_DATA_SWITCH = '//*[@id="listings"]/div[5]/div[1]/div[1]/div[1]/div[2]/label'
+ITEM_ROW = '.market_listing_row .market_recent_listing_row .listing_4312814024297907184'
 
 
 
@@ -88,11 +104,17 @@ chrome_options.add_argument('--ignore-ssl-errors')
 driver = webdriver.Chrome(options=chrome_options)
 driver.maximize_window()
 
-driver.get('https://steamcommunity.com')
+driver.get(STEAM_LINK)
 load_session(driver)
-driver.get('https://steamcommunity.com')
+driver.get(STEAM_LINK)
 print(driver.get_cookies())
-# get_extension()
+
+if check_login():
+    get_extension()
+else:
+    if messagebox.askyesno('Check log in', 'Have you logged in the account?'):
+        get_extension()
+
 
 overlay_window = tk.Tk()
 overlay_window.title("Modern Buttons Window")
