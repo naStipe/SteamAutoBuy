@@ -11,12 +11,25 @@ import os
 
 
 def do_looting():
-    balance = float(driver.find_element(By.CSS_SELECTOR,BALANCE_ID).text[-5])
-    print(balance)
+    # balance = float(driver.find_element(By.CSS_SELECTOR,BALANCE_ID).text[-5])
+    # print(balance)
     driver.find_element(By.XPATH,SKIN_DATA_SWITCH).click()
+    time.sleep(1)
 
-    items = driver.find_elements(By.CLASS_NAME, ITEM_ROW)
-    print(items)
+
+    time.sleep(5)
+
+    get_items()
+    # print(items.find_element(By.XPATH, ITEM_FLOAT).text)
+
+def get_items():
+    global floatValues
+    items = driver.find_elements(By.CLASS_NAME,ITEM_FLOAT_CLASS)
+
+    for item in items:
+        floatValues.append(float(item.find_element(By.XPATH, './/span').text))
+
+        print(floatValues)
 
 def save_session(driver):
     try:
@@ -67,12 +80,6 @@ def exit_button_click():
     exit()
 
 
-def get_extension():
-    global driver
-    driver.get(EXTENSION_LINK)
-    if messagebox.askyesno('Extension installation', 'Has the extension been installed?'):
-        driver.get(MP5_LINK)
-
 def check_login():
     try:
         driver.find_element(By.XPATH, LOGIN_BUTTON)
@@ -93,28 +100,32 @@ MP5_LINK = 'https://steamcommunity.com/market/listings/730/MP5-SD%20%7C%20Kitbas
 LOGIN_BUTTON = '//*[@id="global_action_menu"]/a[2]'
 BALANCE_ID = '#header_wallet_balance'
 SKIN_DATA_SWITCH = '//*[@id="listings"]/div[5]/div[1]/div[1]/div[1]/div[2]/label'
-ITEM_ROW = '.market_listing_row .market_recent_listing_row .listing_4312814024297907184'
-
+ITEM_FLOAT_CLASS = 'itemfloat'
+floatValues = []
 
 
 chrome_options = Options()
 chrome_options.add_experimental_option('detach', True)
 chrome_options.add_argument('--ignore-certificate-error')
 chrome_options.add_argument('--ignore-ssl-errors')
+chrome_options.add_extension('1.18.41_0.crx')
 driver = webdriver.Chrome(options=chrome_options)
 driver.maximize_window()
 
-driver.get(STEAM_LINK)
-load_session(driver)
-driver.get(STEAM_LINK)
-print(driver.get_cookies())
+# driver.get(STEAM_LINK)
+# load_session(driver)
+# driver.get(STEAM_LINK)
+# print(driver.get_cookies())
 
-if check_login():
-    get_extension()
-else:
-    if messagebox.askyesno('Check log in', 'Have you logged in the account?'):
-        get_extension()
+# if check_login():
+#     get_extension()
+# else:
+#     if messagebox.askyesno('Check log in', 'Have you logged in the account?'):
+#         get_extension()
 
+
+driver.get(MP5_LINK)
+do_looting()
 
 overlay_window = tk.Tk()
 overlay_window.title("Modern Buttons Window")

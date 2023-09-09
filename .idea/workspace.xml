@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf59bae6-51e7-4d6f-aca9-e9076739cd62" name="Changes" comment="Temporary commit">
+    <list default="true" id="cf59bae6-51e7-4d6f-aca9-e9076739cd62" name="Changes" comment="Chromedrivers added back">
+      <change afterPath="$PROJECT_DIR$/1.18.41_0.crx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chromedriver-Darwin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chromedriver-Linux32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chromedriver-Linux64" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +38,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/naStipe/Documents/Python/5rubBOT",
+    "last_opened_file_path": "C:/Users/naStipe/Documents/Python/SteamAutoBuyBot",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -48,6 +47,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\naStipe\Documents\Python\SteamAutoBuyBot" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="SteamAutoBuyBot" />
@@ -96,6 +100,9 @@
       <workItem from="1694174618912" duration="596000" />
       <workItem from="1694203410446" duration="610000" />
       <workItem from="1694206094743" duration="1309000" />
+      <workItem from="1694257971554" duration="1727000" />
+      <workItem from="1694261007756" duration="3944000" />
+      <workItem from="1694278952295" duration="2551000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <option name="closed" value="true" />
@@ -153,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694206128154</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Chromedrivers added back">
+      <option name="closed" value="true" />
+      <created>1694212193521</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1694212193521</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +215,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="original/main" />
                       </list>
                     </value>
                   </entry>
@@ -219,9 +234,17 @@
     <MESSAGE value="Added browser session management" />
     <MESSAGE value="Fixed cookie bug" />
     <MESSAGE value="Temporary commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Temporary commit" />
+    <MESSAGE value="Chromedrivers added back" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chromedrivers added back" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="items = driver.find_element(By.XPATH, ITEM_ROW_XPATH)" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SteamAutoBuyBot$main.coverage" NAME="main Coverage Results" MODIFIED="1694109940556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SteamAutoBuyBot$main.coverage" NAME="main Coverage Results" MODIFIED="1694280886362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
