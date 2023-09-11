@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf59bae6-51e7-4d6f-aca9-e9076739cd62" name="Changes" comment="Added extension feature">
+    <list default="true" id="cf59bae6-51e7-4d6f-aca9-e9076739cd62" name="Changes" comment="Added search for float and 'Buy' button pressed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -30,22 +30,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/naStipe/Documents/Python/SteamAutoBuyBot&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Cherry-picking in main",
+    "last_opened_file_path": "C:/Users/naStipe/Documents/Python/SteamAutoBuyBot",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "editing.templates",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\naStipe\Documents\Python\SteamAutoBuyBot" />
@@ -106,7 +106,9 @@
       <workItem from="1694419038688" duration="1161000" />
       <workItem from="1694428958962" duration="912000" />
       <workItem from="1694431945876" duration="766000" />
-      <workItem from="1694433048973" duration="3557000" />
+      <workItem from="1694433048973" duration="3729000" />
+      <workItem from="1694464381044" duration="14000" />
+      <workItem from="1694558015275" duration="1476000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <option name="closed" value="true" />
@@ -180,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694294970510</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added search for float and 'Buy' button pressed">
+      <option name="closed" value="true" />
+      <created>1694436802560</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694436802560</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,7 +258,8 @@
     <MESSAGE value="Temporary commit" />
     <MESSAGE value="Chromedrivers added back" />
     <MESSAGE value="Added extension feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added extension feature" />
+    <MESSAGE value="Added search for float and 'Buy' button pressed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added search for float and 'Buy' button pressed" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -258,6 +269,6 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SteamAutoBuyBot$main.coverage" NAME="main Coverage Results" MODIFIED="1694436641226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SteamAutoBuyBot$main.coverage" NAME="main Coverage Results" MODIFIED="1694559109309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

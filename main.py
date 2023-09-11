@@ -67,6 +67,11 @@ def load_session():
             print('opened file')
             cookies = pickle.load(session_file)
             print(cookies)
+
+            if cookies[0]['expiry'] <= int(time.sleep()):
+                os.remove('session.pkl')
+                save_session()
+
     except:
         print('cookies not found')
         return  0
@@ -145,6 +150,7 @@ if check_login():
     driver.get(MP5_LINK['link'])
     do_looting()
 else:
+    os.remove('session.pkl')
     if messagebox.askyesno('Check log in', 'Have you logged in the account?'):
         save_session()
         driver.get(MP5_LINK['link'])
@@ -167,9 +173,4 @@ stop_button.pack(pady=10)
 exit_button.pack(pady=10)
 
 overlay_window.mainloop()
-
-
-
-
-
 
