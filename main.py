@@ -16,22 +16,40 @@ def do_looting():
     driver.find_element(By.XPATH,SKIN_DATA_SWITCH).click()
     time.sleep(1)
 
-
-    time.sleep(5)
-
-    get_items()
+    # time.sleep(5)
+    #
+    get_items('https://steamcommunity.com/market/listings/730/Dual%20Berettas%20%7C%20Stained%20%28Field-Tested%29?query=&start=0&count=100', 0.199)
     # print(items.find_element(By.XPATH, ITEM_FLOAT).text)
 
-def get_items():
+def get_items(itemLink, desired_float):
     global floatValues
-    items = driver.find_elements(By.CLASS_NAME,ITEM_FLOAT_CLASS)
+    driver.get(itemLink)
+    time.sleep(1)
+    foundFound = False
+    while not foundFound:
+        try:
+            driver.find_element(By.CLASS_NAME, SEARCH_BUTTON_CLASS)
+            foundFound = True
+            print('Button found')
+        except:
+            print('Button not found')
 
+        time.sleep(5)
+
+
+    items = driver.find_elements(By.CLASS_NAME, ITEM_FLOAT_CLASS)
     for item in items:
-        floatValues.append(float(item.find_element(By.XPATH, './/span').text))
+        itemFloat = float(item.find_element(By.XPATH, './/span').text)
+        if itemFloat < desired_float:
+            floatValues.append(itemFloat)
+            print(itemFloat)
+            buy_item(item)
 
-        print(floatValues)
+def buy_item(item):
+    item.find_element(By.XPATH, '../../../../div[2]/div[1]/div/a').click()
+    time.sleep(100)
 
-def save_session(driver):
+def save_session():
     try:
         with open('session.pkl', 'wb') as session_file:
             pickle.dump(driver.get_cookies(), session_file)
@@ -39,7 +57,7 @@ def save_session(driver):
 
     except:
         print('Session save failed')
-def load_session(driver):
+def load_session():
     time.sleep(0.3)
     driver.delete_all_cookies()
 
@@ -70,9 +88,9 @@ def stop_button_click():
     messagebox.showinfo("Info", "Stop button clicked")
 
 def exit_button_click():
-    global overlay_window, driver
+    global overlay_window
     if messagebox.askyesno("Exit", "Do you want to save cookies?"):
-        save_session(driver)
+        save_session()
     else:
         os.remove('session.pkl')
 
@@ -96,11 +114,16 @@ def check_login():
 STEAM_LINK = 'https://steamcommunity.com'
 EXTENSION_LINK = 'https://chrome.google.com/webstore/detail/steam-inventory-helper/cmeakgjggjdlcpncigglobpjbkabhmjl'
 ADD_EXTENSION_BUTTON = '/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div/div'
-MP5_LINK = 'https://steamcommunity.com/market/listings/730/MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29#'
+MP5_LINK = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
+MAG7_LINK = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MAG-7%20%7C%20Monster%20Call%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
+MAC10_LINK = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MAC-10%20%7C%20Allure%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
+TEC9_LINK = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Tec-9%20%7C%20Brother%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
+GALIL_LINK = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Galil%20AR%20%7C%20Connexion%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
 LOGIN_BUTTON = '//*[@id="global_action_menu"]/a[2]'
 BALANCE_ID = '#header_wallet_balance'
 SKIN_DATA_SWITCH = '//*[@id="listings"]/div[5]/div[1]/div[1]/div[1]/div[2]/label'
 ITEM_FLOAT_CLASS = 'itemfloat'
+SEARCH_BUTTON_CLASS = 'open_setting_paint_seed_and_float'
 floatValues = []
 
 
@@ -112,19 +135,22 @@ chrome_options.add_extension('1.18.41_0.crx')
 driver = webdriver.Chrome(options=chrome_options)
 driver.maximize_window()
 
-# driver.get(STEAM_LINK)
-# load_session(driver)
-# driver.get(STEAM_LINK)
-# print(driver.get_cookies())
+driver.get(STEAM_LINK)
+load_session()
+driver.get(STEAM_LINK)
+print(driver.get_cookies())
+time.sleep(1)
 
-# if check_login():
-#     get_extension()
-# else:
-#     if messagebox.askyesno('Check log in', 'Have you logged in the account?'):
-#         get_extension()
+if check_login():
+    driver.get(MP5_LINK['link'])
+    do_looting()
+else:
+    if messagebox.askyesno('Check log in', 'Have you logged in the account?'):
+        save_session()
+        driver.get(MP5_LINK['link'])
+        do_looting()
 
-
-driver.get(MP5_LINK)
+driver.get(MP5_LINK['link'])
 do_looting()
 
 overlay_window = tk.Tk()

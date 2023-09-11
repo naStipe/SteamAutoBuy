@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf59bae6-51e7-4d6f-aca9-e9076739cd62" name="Changes" comment="Chromedrivers added back">
-      <change afterPath="$PROJECT_DIR$/1.18.41_0.crx" afterDir="false" />
+    <list default="true" id="cf59bae6-51e7-4d6f-aca9-e9076739cd62" name="Changes" comment="Added extension feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -31,22 +30,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/naStipe/Documents/Python/SteamAutoBuyBot",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "editing.templates",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/naStipe/Documents/Python/SteamAutoBuyBot&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\naStipe\Documents\Python\SteamAutoBuyBot" />
@@ -102,7 +101,12 @@
       <workItem from="1694206094743" duration="1309000" />
       <workItem from="1694257971554" duration="1727000" />
       <workItem from="1694261007756" duration="3944000" />
-      <workItem from="1694278952295" duration="2551000" />
+      <workItem from="1694278952295" duration="2615000" />
+      <workItem from="1694304968800" duration="605000" />
+      <workItem from="1694419038688" duration="1161000" />
+      <workItem from="1694428958962" duration="912000" />
+      <workItem from="1694431945876" duration="766000" />
+      <workItem from="1694433048973" duration="3557000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <option name="closed" value="true" />
@@ -168,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694212193521</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added extension feature">
+      <option name="closed" value="true" />
+      <created>1694294970510</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1694294970510</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,7 +227,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="original/main" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
@@ -235,7 +247,8 @@
     <MESSAGE value="Fixed cookie bug" />
     <MESSAGE value="Temporary commit" />
     <MESSAGE value="Chromedrivers added back" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chromedrivers added back" />
+    <MESSAGE value="Added extension feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added extension feature" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -245,6 +258,6 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SteamAutoBuyBot$main.coverage" NAME="main Coverage Results" MODIFIED="1694280886362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SteamAutoBuyBot$main.coverage" NAME="main Coverage Results" MODIFIED="1694436641226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
