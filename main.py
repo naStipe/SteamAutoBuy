@@ -62,19 +62,23 @@ def load_session():
     driver.delete_all_cookies()
 
     try:
-        print('in load functio')
+        print('in load function')
+        with open('session.pkl', 'rb') as session_file:
+            cookies = pickle.load(session_file)
+            print(cookies)
+
+        print('Cookies loaded')
+    except:
+        print('cookies not found')
+        return  0
+
+    if cookies[0]['expiry'] <= int(time.time()):
+        os.remove('session.pkl')
+        save_session()
         with open('session.pkl', 'rb') as session_file:
             print('opened file')
             cookies = pickle.load(session_file)
             print(cookies)
-
-            if cookies[0]['expiry'] <= int(time.sleep()):
-                os.remove('session.pkl')
-                save_session()
-
-    except:
-        print('cookies not found')
-        return  0
 
     try:
         for cookie in cookies:
@@ -150,7 +154,6 @@ if check_login():
     driver.get(MP5_LINK['link'])
     do_looting()
 else:
-    os.remove('session.pkl')
     if messagebox.askyesno('Check log in', 'Have you logged in the account?'):
         save_session()
         driver.get(MP5_LINK['link'])
