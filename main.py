@@ -23,33 +23,39 @@ def do_looting():
 
 
 def get_items(itemLink, desiredFloat):
-    global floatValues
-    driver.get(itemLink)
-    time.sleep(1)
-    searchButtonFound = False
-    timesButtonNotFound = 0
-    while not searchButtonFound:
-        try:
-            driver.find_element(By.CLASS_NAME, SEARCH_BUTTON_CLASS)
-            searchButtonFound = True
-            print('Button found')
-        except:
-            print('Button not found')
-            timesButtonNotFound += 1
-            if timesButtonNotFound >= 10:
-                get_items(itemLink,desiredFloat)
-                return 0
-
-        time.sleep(5)
+    pageNumbers = ['0', '100', '200', '300']
 
 
-    items = driver.find_elements(By.CLASS_NAME, ITEM_FLOAT_CLASS)
-    for item in items:
-        itemFloat = float(item.find_element(By.XPATH, './/span').text)
-        if itemFloat < desiredFloat:
-            floatValues.append(itemFloat)
-            print(itemFloat)
-            buy_item(item, itemLink, desiredFloat)
+    for i in range(3):
+        floatValues = []
+        driver.get(itemLink+pageNumbers[i]+'&count=100')
+        print('Page: ' + pageNumbers[i])
+        time.sleep(1)
+        searchButtonFound = False
+        timesButtonNotFound = 0
+        while not searchButtonFound:
+            try:
+                driver.find_element(By.CLASS_NAME, SEARCH_BUTTON_CLASS)
+                searchButtonFound = True
+                print('Button found')
+            except:
+                print('Button not found')
+                timesButtonNotFound += 1
+                if timesButtonNotFound >= 10:
+                    get_items(itemLink,desiredFloat)
+                    print('Reloading page')
+                    return 0
+
+            time.sleep(5)
+
+
+        items = driver.find_elements(By.CLASS_NAME, ITEM_FLOAT_CLASS)
+        for item in items:
+            itemFloat = float(item.find_element(By.XPATH, './/span').text)
+            if itemFloat < desiredFloat:
+                floatValues.append(itemFloat)
+                print(itemFloat)
+                buy_item(item, itemLink, desiredFloat)
 
 def buy_item(item, itemLink, desiredFloat):
     try:
@@ -88,7 +94,9 @@ def load_session():
         print('cookies not found')
         return  0
 
+    print(cookies)
     if cookies[0]['expiry'] <= int(time.time()):
+        print(int(time.time()))
         os.remove('session.pkl')
         save_session()
         with open('session.pkl', 'rb') as session_file:
@@ -135,6 +143,22 @@ def check_login():
 
 #----------------------------------------- MAIN BODY ------------------------------------------------#
 
+#ITEMS#
+ITEMS = [
+#Fracture STATTREK
+         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=', 'desired_float': 0.199},
+         {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MAG-7%20%7C%20Monster%20Call%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MAC-10%20%7C%20Allure%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Tec-9%20%7C%20Brother%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Galil%20AR%20%7C%20Connexion%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+#Fracture
+         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}]
+
+
 #CONSTANTS#
 STEAM_LINK = 'https://steamcommunity.com'
 EXTENSION_LINK = 'https://chrome.google.com/webstore/detail/steam-inventory-helper/cmeakgjggjdlcpncigglobpjbkabhmjl'
@@ -144,7 +168,6 @@ BALANCE_ID = '#header_wallet_balance'
 SKIN_DATA_SWITCH = '//*[@id="listings"]/div[5]/div[1]/div[1]/div[1]/div[2]/label'
 ITEM_FLOAT_CLASS = 'itemfloat'
 SEARCH_BUTTON_CLASS = 'open_setting_paint_seed_and_float'
-floatValues = []
 
 
 chrome_options = Options()
@@ -162,15 +185,15 @@ print(driver.get_cookies())
 time.sleep(1)
 
 if check_login():
-    driver.get(MP5['link'])
+    driver.get(ITEMS[0]['link'])
     do_looting()
 else:
     if messagebox.askyesno('Check log in', 'Have you logged in the account?'):
         save_session()
-        driver.get(MP5['link'])
+        driver.get(ITEMS[0]['link'])
         do_looting()
 
-driver.get(MP5['link'])
+driver.get(ITEMS[0]['link'])
 do_looting()
 
 overlay_window = tk.Tk()
@@ -187,17 +210,3 @@ stop_button.pack(pady=10)
 exit_button.pack(pady=10)
 
 overlay_window.mainloop()
-
-ITEMS = [
-#Fracture STATTREK
-         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
-         {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MAG-7%20%7C%20Monster%20Call%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
-         {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MAC-10%20%7C%20Allure%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
-         {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Tec-9%20%7C%20Brother%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
-         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Galil%20AR%20%7C%20Connexion%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
-#Fracture
-         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
-         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
-         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
-         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
-         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}]
