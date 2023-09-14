@@ -17,16 +17,9 @@ def do_looting():
     time.sleep(1)
 
     while balance > 1:
-        get_items(GALIL['link'], GALIL['desired_float'])
-        time.sleep(5)
-        get_items(MP5['link'], MP5['desired_float'])
-        time.sleep(5)
-        get_items(TEC9['link'], TEC9['desired_float'])
-        time.sleep(5)
-        get_items(MAC10['link'], MAC10['desired_float'])
-        time.sleep(5)
-        get_items(MAG7['link'], MAG7['desired_float'])
-        time.sleep(5)
+        for item in ITEMS:
+            get_items(item['link'], item['desired_float'])
+            time.sleep(5)
 
 
 def get_items(itemLink, desiredFloat):
@@ -34,6 +27,7 @@ def get_items(itemLink, desiredFloat):
     driver.get(itemLink)
     time.sleep(1)
     searchButtonFound = False
+    timesButtonNotFound = 0
     while not searchButtonFound:
         try:
             driver.find_element(By.CLASS_NAME, SEARCH_BUTTON_CLASS)
@@ -41,6 +35,10 @@ def get_items(itemLink, desiredFloat):
             print('Button found')
         except:
             print('Button not found')
+            timesButtonNotFound += 1
+            if timesButtonNotFound >= 10:
+                get_items(itemLink,desiredFloat)
+                return 0
 
         time.sleep(5)
 
@@ -141,11 +139,6 @@ def check_login():
 STEAM_LINK = 'https://steamcommunity.com'
 EXTENSION_LINK = 'https://chrome.google.com/webstore/detail/steam-inventory-helper/cmeakgjggjdlcpncigglobpjbkabhmjl'
 ADD_EXTENSION_BUTTON = '/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div/div'
-MP5 = {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
-MAG7 = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MAG-7%20%7C%20Monster%20Call%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
-MAC10 = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MAC-10%20%7C%20Allure%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
-TEC9 = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Tec-9%20%7C%20Brother%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
-GALIL = {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Galil%20AR%20%7C%20Connexion%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
 LOGIN_BUTTON = '//*[@id="global_action_menu"]/a[2]'
 BALANCE_ID = '#header_wallet_balance'
 SKIN_DATA_SWITCH = '//*[@id="listings"]/div[5]/div[1]/div[1]/div[1]/div[2]/label'
@@ -195,3 +188,16 @@ exit_button.pack(pady=10)
 
 overlay_window.mainloop()
 
+ITEMS = [
+#Fracture STATTREK
+         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MAG-7%20%7C%20Monster%20Call%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MAC-10%20%7C%20Allure%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Tec-9%20%7C%20Brother%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Galil%20AR%20%7C%20Connexion%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+#Fracture
+         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199},
+         {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}]
