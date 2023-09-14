@@ -11,25 +11,33 @@ import os
 
 
 def do_looting():
-    # balance = float(driver.find_element(By.CSS_SELECTOR,BALANCE_ID).text[-5])
-    # print(balance)
+    balance = float(driver.find_element(By.CSS_SELECTOR,BALANCE_ID).text[-5])
+    print(balance)
     driver.find_element(By.XPATH,SKIN_DATA_SWITCH).click()
     time.sleep(1)
 
-    # time.sleep(5)
-    #
-    get_items('https://steamcommunity.com/market/listings/730/Dual%20Berettas%20%7C%20Stained%20%28Field-Tested%29?query=&start=0&count=100', 0.199)
-    # print(items.find_element(By.XPATH, ITEM_FLOAT).text)
+    while balance > 1:
+        get_items(GALIL['link'], GALIL['desired_float'])
+        time.sleep(5)
+        get_items(MP5['link'], MP5['desired_float'])
+        time.sleep(5)
+        get_items(TEC9['link'], TEC9['desired_float'])
+        time.sleep(5)
+        get_items(MAC10['link'], MAC10['desired_float'])
+        time.sleep(5)
+        get_items(MAG7['link'], MAG7['desired_float'])
+        time.sleep(5)
 
-def get_items(itemLink, desired_float):
+
+def get_items(itemLink, desiredFloat):
     global floatValues
     driver.get(itemLink)
     time.sleep(1)
-    foundFound = False
-    while not foundFound:
+    searchButtonFound = False
+    while not searchButtonFound:
         try:
             driver.find_element(By.CLASS_NAME, SEARCH_BUTTON_CLASS)
-            foundFound = True
+            searchButtonFound = True
             print('Button found')
         except:
             print('Button not found')
@@ -40,14 +48,24 @@ def get_items(itemLink, desired_float):
     items = driver.find_elements(By.CLASS_NAME, ITEM_FLOAT_CLASS)
     for item in items:
         itemFloat = float(item.find_element(By.XPATH, './/span').text)
-        if itemFloat < desired_float:
+        if itemFloat < desiredFloat:
             floatValues.append(itemFloat)
             print(itemFloat)
-            buy_item(item)
+            buy_item(item, itemLink, desiredFloat)
 
-def buy_item(item):
-    item.find_element(By.XPATH, '../../../../div[2]/div[1]/div/a').click()
-    time.sleep(100)
+def buy_item(item, itemLink, desiredFloat):
+    try:
+        item.find_element(By.XPATH, '../../../../div[2]/div[1]/div/a').click()
+        time.sleep(3)
+        driver.find_element(By.XPATH, '//*[@id="market_buynow_dialog_accept_ssa"]').click()
+        time.sleep(1)
+        driver.find_element(By.XPATH, '//*[@id="market_buynow_dialog_purchase"]').click()
+        time.sleep(2)
+        driver.find_element(By.XPATH, '//*[@id="market_buynow_dialog_close"]').click()
+        time.sleep(1)
+    except:
+        messagebox("Buy failed")
+        get_items(itemLink, desiredFloat)
 
 def save_session():
     try:
@@ -123,11 +141,11 @@ def check_login():
 STEAM_LINK = 'https://steamcommunity.com'
 EXTENSION_LINK = 'https://chrome.google.com/webstore/detail/steam-inventory-helper/cmeakgjggjdlcpncigglobpjbkabhmjl'
 ADD_EXTENSION_BUTTON = '/html/body/div[3]/div[2]/div/div/div[2]/div[2]/div/div/div/div'
-MP5_LINK = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
-MAG7_LINK = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MAG-7%20%7C%20Monster%20Call%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
-MAC10_LINK = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MAC-10%20%7C%20Allure%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
-TEC9_LINK = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Tec-9%20%7C%20Brother%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
-GALIL_LINK = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Galil%20AR%20%7C%20Connexion%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
+MP5 = {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MP5-SD%20%7C%20Kitbash%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
+MAG7 = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MAG-7%20%7C%20Monster%20Call%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
+MAC10 = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20MAC-10%20%7C%20Allure%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
+TEC9 = {'link':'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Tec-9%20%7C%20Brother%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
+GALIL = {'link': 'https://steamcommunity.com/market/listings/730/StatTrak%E2%84%A2%20Galil%20AR%20%7C%20Connexion%20%28Field-Tested%29?query=&start=0&count=100', 'desired_float': 0.199}
 LOGIN_BUTTON = '//*[@id="global_action_menu"]/a[2]'
 BALANCE_ID = '#header_wallet_balance'
 SKIN_DATA_SWITCH = '//*[@id="listings"]/div[5]/div[1]/div[1]/div[1]/div[2]/label'
@@ -151,15 +169,15 @@ print(driver.get_cookies())
 time.sleep(1)
 
 if check_login():
-    driver.get(MP5_LINK['link'])
+    driver.get(MP5['link'])
     do_looting()
 else:
     if messagebox.askyesno('Check log in', 'Have you logged in the account?'):
         save_session()
-        driver.get(MP5_LINK['link'])
+        driver.get(MP5['link'])
         do_looting()
 
-driver.get(MP5_LINK['link'])
+driver.get(MP5['link'])
 do_looting()
 
 overlay_window = tk.Tk()
