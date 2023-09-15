@@ -26,7 +26,7 @@ def get_items(driver, itemLink, desiredFloat):
     pageNumbers = ['0', '100', '200', '300']
 
 
-    for i in range(3):
+    for i in range(1):
         floatValues = []
         driver.get(itemLink+pageNumbers[i]+'&count=100')
         print('Page: ' + pageNumbers[i])
@@ -58,17 +58,22 @@ def get_items(driver, itemLink, desiredFloat):
                 buy_item(driver, item, itemLink, desiredFloat)
 
 def buy_item(driver, item, itemLink, desiredFloat):
+    timeBuyFailed = 0
     try:
         item.find_element(By.XPATH, '../../../../div[2]/div[1]/div/a').click()
-        time.sleep(3)
-        driver.find_element(By.XPATH, '//*[@id="market_buynow_dialog_accept_ssa"]').click()
-        time.sleep(1)
+        time.sleep(0.5)
+
+        checkbox = driver.find_element(By.XPATH, '//*[@id="market_buynow_dialog_accept_ssa"]')
+        if checkbox.get_attribute('checked'):
+            checkbox.click()
+            time.sleep(0.4)
+
         driver.find_element(By.XPATH, '//*[@id="market_buynow_dialog_purchase"]').click()
         time.sleep(2)
         driver.find_element(By.XPATH, '//*[@id="market_buynow_dialog_close"]').click()
         time.sleep(0.5)
     except:
-        messagebox("Buy failed")
+        messagebox.showinfo("Buy failed", 'Buy failed')
         get_items(driver, itemLink, desiredFloat)
 
 def save_session(driver):
@@ -97,15 +102,16 @@ def load_session(driver):
     if len(cookies) == 0:
         print('Cookies are empty')
         return 0
+#TODO Fix expiration date
 
-    if cookies[0]['expiry'] <= int(time.time()):
-        print(int(time.time()))
-        os.remove('session.pkl')
-        save_session(driver)
-        with open('session.pkl', 'rb') as session_file:
-            print('opened file')
-            cookies = pickle.load(session_file)
-            print(cookies)
+    # if cookies[0]['expiry'] <= int(time.time()):
+    #     print(int(time.time()))
+    #     os.remove('session.pkl')
+    #     save_session(driver)
+    #     with open('session.pkl', 'rb') as session_file:
+    #         print('opened file')
+    #         cookies = pickle.load(session_file)
+    #         print(cookies)
 
     try:
         for cookie in cookies:
@@ -176,7 +182,7 @@ ITEMS = [
          {'link': 'https://steamcommunity.com/market/listings/730/Tec-9%20%7C%20Brother%20%28Field-Tested%29?query=&start=', 'desired_float': 0.199},
          {'link': 'https://steamcommunity.com/market/listings/730/MAC-10%20%7C%20Allure%20%28Field-Tested%29?query=&start=', 'desired_float': 0.199}]
 
-ITEMS_SMALL = [ITEMS[0], ITEMS[1]]
+ITEMS_SMALL = [ITEMS[1]]
 ITEMS_BIG = [ITEMS[2], ITEMS[3], ITEMS[4]]
 
 
@@ -200,14 +206,15 @@ chrome_options.add_extension('1.18.41_0.crx')
 driver = webdriver.Chrome(options=chrome_options)
 driver.maximize_window()
 
-driver2 = webdriver.Chrome(options=chrome_options)
-driver2.maximize_window()
+# driver2 = webdriver.Chrome(options=chrome_options)
+# driver2.maximize_window()
+#
+# thread1 = Thread(target=lunch, args=[driver, ITEMS_BIG])
+# thread1.start()
+# thread2 = Thread(target=lunch, args=[driver2, ITEMS_SMALL])
+# thread2.start()
 
-thread1 = Thread(target=lunch, args=[driver, ITEMS_BIG])
-thread1.start()
-thread2 = Thread(target=lunch, args=[driver2, ITEMS_SMALL])
-thread2.start()
-
+lunch(driver, ITEMS_BIG)
 
 # overlay_window = tk.Tk()
 # overlay_window.title("Modern Buttons Window")
