@@ -41,7 +41,7 @@ def get_items(driver, itemLink, desiredFloat):
             except:
                 print('Button not found')
                 timesButtonNotFound += 1
-                if timesButtonNotFound >= 5:
+                if timesButtonNotFound >= 3:
                     get_items(driver, itemLink, desiredFloat)
                     print('Reloading page')
                     return 0
@@ -51,11 +51,15 @@ def get_items(driver, itemLink, desiredFloat):
 
         items = driver.find_elements(By.CLASS_NAME, ITEM_FLOAT_CLASS)
         for item in items:
-            itemFloat = float(item.find_element(By.XPATH, './/span').text)
-            if itemFloat < desiredFloat:
-                floatValues.append(itemFloat)
-                print(itemFloat)
-                buy_item(driver, item, itemLink, desiredFloat)
+            floatText = item.find_element(By.XPATH, './/span').text
+            if not floatText == '':
+                itemFloat = float(floatText)
+                if itemFloat < desiredFloat:
+                    floatValues.append(itemFloat)
+                    floatValues.append(itemFloat)
+                    print(itemFloat)
+                    buy_item(driver, item, itemLink, desiredFloat)
+
 
 def buy_item(driver, item, itemLink, desiredFloat):
     timeBuyFailed = 0
@@ -64,7 +68,7 @@ def buy_item(driver, item, itemLink, desiredFloat):
         time.sleep(0.5)
 
         checkbox = driver.find_element(By.XPATH, '//*[@id="market_buynow_dialog_accept_ssa"]')
-        if checkbox.get_attribute('checked'):
+        if not checkbox.get_attribute('checked'):
             checkbox.click()
             time.sleep(0.4)
 
