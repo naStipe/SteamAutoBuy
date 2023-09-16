@@ -26,11 +26,13 @@ def get_items(driver, itemLink, desiredFloat):
     pageNumbers = ['0', '100', '200', '300']
 
 
-    for i in range(1):
+    # for i in range(1):
+
+    driver.get(itemLink+'0'+'&count=100')
+    # print('Page: ' + pageNumbers[i])
+
+    while True:
         floatValues = []
-        driver.get(itemLink+pageNumbers[i]+'&count=100')
-        print('Page: ' + pageNumbers[i])
-        time.sleep(1)
         searchButtonFound = False
         timesButtonNotFound = 0
         while not searchButtonFound:
@@ -41,12 +43,12 @@ def get_items(driver, itemLink, desiredFloat):
             except:
                 print('Button not found')
                 timesButtonNotFound += 1
-                if timesButtonNotFound >= 3:
-                    get_items(driver, itemLink, desiredFloat)
+                if timesButtonNotFound >= 7:
                     print('Reloading page')
+                    get_items(driver, itemLink, desiredFloat)
                     return 0
 
-            time.sleep(5)
+            time.sleep(1)
 
 
         items = driver.find_elements(By.CLASS_NAME, ITEM_FLOAT_CLASS)
@@ -60,25 +62,31 @@ def get_items(driver, itemLink, desiredFloat):
                     print(itemFloat)
                     buy_item(driver, item, itemLink, desiredFloat)
 
+        driver.find_element(By.XPATH, '//*[@id="market_listing_filter_form"]/div/a').click()
+
 
 def buy_item(driver, item, itemLink, desiredFloat):
     timeBuyFailed = 0
     try:
         item.find_element(By.XPATH, '../../../../div[2]/div[1]/div/a').click()
-        time.sleep(0.5)
-
+        time.sleep(0.3)
+        print('Buy button clicked')
         checkbox = driver.find_element(By.XPATH, '//*[@id="market_buynow_dialog_accept_ssa"]')
         if not checkbox.get_attribute('checked'):
             checkbox.click()
-            time.sleep(0.4)
+            print('Checkbox clicked')
+            time.sleep(0.1)
+        else:
+            print('Checkbox already cehcked')
 
         driver.find_element(By.XPATH, '//*[@id="market_buynow_dialog_purchase"]').click()
         time.sleep(2)
+        print('By confirmed')
         driver.find_element(By.XPATH, '//*[@id="market_buynow_dialog_close"]').click()
         time.sleep(0.5)
     except:
         messagebox.showinfo("Buy failed", 'Buy failed')
-        get_items(driver, itemLink, desiredFloat)
+        return 0
 
 def save_session(driver):
     try:
@@ -164,6 +172,7 @@ def lunch(driver, ITEMS):
         driver.get(ITEMS[0]['link'])
         do_looting(driver, ITEMS)
     else:
+        driver.delete_all_cookies()
         if messagebox.askyesno('Check log in', 'Have you logged in the account?'):
             save_session(driver)
             driver.get(ITEMS[0]['link'])
@@ -187,7 +196,7 @@ ITEMS = [
          {'link': 'https://steamcommunity.com/market/listings/730/MAC-10%20%7C%20Allure%20%28Field-Tested%29?query=&start=', 'desired_float': 0.199}]
 
 ITEMS_SMALL = [ITEMS[1]]
-ITEMS_BIG = [ITEMS[2], ITEMS[3], ITEMS[4]]
+ITEMS_BIG = [ITEMS[0]]
 
 
 #CONSTANTS#
@@ -209,16 +218,19 @@ chrome_options.add_extension('1.18.41_0.crx')
 
 driver = webdriver.Chrome(options=chrome_options)
 driver.maximize_window()
+lunch(driver, ITEMS_SMALL)
 
+# driver1 = webdriver.Chrome(options=chrome_options)
+# driver1.maximize_window()
 # driver2 = webdriver.Chrome(options=chrome_options)
 # driver2.maximize_window()
 #
-# thread1 = Thread(target=lunch, args=[driver, ITEMS_BIG])
+# thread1 = Thread(target=lunch, args=[driver1, ITEMS_BIG])
 # thread1.start()
 # thread2 = Thread(target=lunch, args=[driver2, ITEMS_SMALL])
 # thread2.start()
 
-lunch(driver, ITEMS_BIG)
+
 
 # overlay_window = tk.Tk()
 # overlay_window.title("Modern Buttons Window")

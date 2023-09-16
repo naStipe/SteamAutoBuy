@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf59bae6-51e7-4d6f-aca9-e9076739cd62" name="Changes" comment="Added checkbox check and small changes">
+    <list default="true" id="cf59bae6-51e7-4d6f-aca9-e9076739cd62" name="Changes" comment="Fixed checkbox check and fixed error with empty floats">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -115,7 +115,9 @@
       <workItem from="1694642503446" duration="2100000" />
       <workItem from="1694694231135" duration="2355000" />
       <workItem from="1694704796593" duration="7159000" />
-      <workItem from="1694715165711" duration="10212000" />
+      <workItem from="1694715165711" duration="16651000" />
+      <workItem from="1694795664984" duration="3070000" />
+      <workItem from="1694872882482" duration="412000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <option name="closed" value="true" />
@@ -253,7 +255,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694771157384</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fixed checkbox check and fixed error with empty floats">
+      <option name="closed" value="true" />
+      <created>1694789893057</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1694789893057</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +339,8 @@
     <MESSAGE value="Looting multiple pages" />
     <MESSAGE value="Added second browser" />
     <MESSAGE value="Added checkbox check and small changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added checkbox check and small changes" />
+    <MESSAGE value="Fixed checkbox check and fixed error with empty floats" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed checkbox check and fixed error with empty floats" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -339,6 +350,6 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SteamAutoBuyBot$main.coverage" NAME="main Coverage Results" MODIFIED="1694772311825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SteamAutoBuyBot$main.coverage" NAME="main Coverage Results" MODIFIED="1694873294023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
